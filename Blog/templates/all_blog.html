@@ -1,0 +1,149 @@
+{% extends 'teacher_nav.html' %}
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+
+
+
+   <style>
+        img{
+            width:100px;
+            height:100px
+        }
+        video{
+            width:100px;
+            height:100px
+        }
+
+        table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+}
+
+
+table th,
+table td {
+  padding: .625em;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+
+  table td::before {
+    
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* general styling */
+@media screen and (min-width: 600px) {
+
+
+table td{
+  word-wrap: break-word;
+
+}
+}
+    </style>
+
+<table>
+  <caption>Data Added </caption>
+  <thead>
+    <tr>
+      <th scope="col"> ID </th>
+      <th scope="col"> Title </th>
+      <th scope="col">Body </th>
+      <th scope="col">Image </th>
+      <th scope="col"> Video URL</th>
+      <th scope="col">Video </th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for q in form %}
+    <tr>
+      <td data-label="ID" >{{q.id}}</td>
+      <td data-label="Title"> {{q.Title}} </td>
+      <td data-label="Body">{{q.Body | safe}}</td>
+      <td data-label="Image"><img src="{{q.Image.url}}"></td>
+      <td data-label="Video URL">{{ q.Video_URL }}</td>
+      <td data-label="Video"><video><source src="{{ q.Video.url }}" type="video/mp4" ></video></td>
+      <td data-label="Edit"><a href="{% url 'blog:edit' q.id %}"> Edit </a> </td>
+      <td data-label="Delete"><a href="{% url 'blog:delete' q.id %}"> Delete</td>
+    </tr>
+   
+  </tbody>
+  {% endfor %}
+</table>
+
+
+      
+        <div class="back">
+          <a href="{% url 'teacher:teacher_main' %}"> Back to the main page </a>
+        </div>
+        {% endblock body_content %}
+
+        

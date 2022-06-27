@@ -1,0 +1,17 @@
+{% extends 'teacher_nav.html' %}
+
+
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+{% if user.is_authenticated %}
+
+            <p><i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i></p>
+            <p><strong> Email: </strong> {{user.username}}</p>
+
+            {% endif %}
+{% endblock body_content %}
+    

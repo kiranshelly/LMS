@@ -1,0 +1,74 @@
+{% extends 'student_nav.html' %}
+
+{% load static %}
+
+
+<!-- Github Toekn - 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 -->
+{% load crispy_forms_filters %} 
+
+  {% block body_content %}
+  <style>
+
+.inner-1{
+padding:20px;
+display: flex;
+flex-direction: row;
+}
+.iiner-2{
+  padding:20px;
+
+display: flex;
+flex-direction: row;
+}
+.inner-2 .tag{
+    font-size: 28px;
+  }
+.inner-2 img{
+  width:300px;
+}
+
+.inner-3 video{
+  padding:20px;
+  width:500px;
+  height: 400px;
+}
+
+
+
+@media screen and (max-width: 850px) {
+  .inner-1{
+flex-direction: column;
+
+}
+.inner-2{
+flex-direction: column;
+
+}
+  .inner-2 .tag{
+    font-size: 28px;
+  }
+
+.inner-2 img{
+  width:400px;
+}
+.inner-3 video{
+  width:400px;
+}
+}
+
+</style>
+
+  <div class="inner-1">
+    <div class="inner-2">
+        <p class='tag'>Lesson -{{form.id}} {{form.Title}}</p>
+            <img src="{{form.Image.url}}"/>
+      
+            <p>{{form.Body | safe}}</p>
+    </div>
+    <div class="inner-3">
+      <video controls>
+        <source src="{{form.Video.url }}" type="video/mp4">
+      </video>    
+      </div>
+</div>
+{% endblock body_content %}    

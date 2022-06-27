@@ -1,0 +1,53 @@
+
+{% extends 'student_nav.html' %}
+{% load static %}
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+
+<section>
+    <header class="major">
+      <h2> Quizes </h2>
+    </header>
+    <div class="posts">
+      <article>
+        <a href="#" class="image"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+        <h3> Multiple Choice Quiz</h3>
+        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+        <ul class="actions">
+          <li><a  href="{% url 'quiz:Get_Multiple_Quiz' %}" class="button">Start Quiz</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <a href="#" class="image"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+        <h3>True & False Quiz </h3>
+        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+        <ul class="actions">
+          <li><a   href="{% url 'quiz:Get_True_False_Quiz' %}" class="button"> Start Quiz</a></li>
+        </ul>
+      </article>
+    
+      <article>
+        <a href="#" class="image"><img src="{% static 'images/pic01.jpg' %}" alt="" /></a>
+        <h3> Fill in the Blanks Quiz </h3>
+        <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+        <ul class="actions">
+          <li><a  href="{% url 'quiz:Get_Fill_in_the_Blanks_Quiz' %}" class="button">Start Quiz</a></li>
+        </ul>
+      </article>
+
+    </div>
+    <a href="{% url 'student:student_base' %}"> Back to the main page </a>
+
+  </section>
+
+
+
+    
+
+    
+    {% endblock body_content %}

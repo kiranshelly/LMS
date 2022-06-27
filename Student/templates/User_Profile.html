@@ -1,0 +1,41 @@
+{% extends 'student_nav.html' %}
+
+
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+
+
+{% block body_content %}
+
+        {% if user.is_authenticated %}
+
+        <h1> My Profile </h1>
+
+
+		<label>Email </label>
+		<input type="email" name="email" value="{{ user.username }}">
+
+		
+        {% endif %}
+
+</body>
+</html>
+<!-- <div class="profile">
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+            <p><strong> Username: </strong> {{get_user.Username}}</p>
+            <p><strong> Email : </strong> {{get_user.Email}}</p>
+</div> -->
+{% endblock body_content %}
+    

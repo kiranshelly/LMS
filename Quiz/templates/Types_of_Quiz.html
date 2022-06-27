@@ -1,0 +1,14 @@
+{% extends 'teacher_nav.html' %}
+
+{% block body_content %}
+
+<a class="types_of_quiz_a" href="{% url 'teacher:teacher_main' %}"> <- Back </a>
+
+   <a class="link" href="{% url 'quiz:Create_Multiple_Quiz' %}"> Multiple Choice </a> 
+   <a  class="link" href="{% url 'quiz:True_False_Quiz' %}"> True and False  </a> 
+   <a  class="link" href="{% url 'quiz:Fill_in_the_Blanks_Quiz' %}"> Fill in the Blanks  </a>
+  
+
+
+  
+    {% endblock body_content %}

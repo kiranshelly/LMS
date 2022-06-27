@@ -1,0 +1,85 @@
+{% extends 'student_nav.html' %}
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+
+
+
+
+
+
+<body>
+  {% load crispy_forms_filters %} 
+
+  <div class="lesson mt-5"> 
+  <h2> Get Multiple Choice Question </h2>
+        <form method="POST">
+          {% csrf_token %}
+          {% for q in Get_True_False_Quiz %} 
+          <div align="right " id="displaytimer"><b>Timer: 0 seconds</b></div>
+
+           <p><strong> Question :  </strong>{{q.Question}} (marks of {{q.Marks}}) </p> 
+           <input  type="radio"  name="{{q.Question}}" value="{{q.Option1}}">
+           <label >
+               {{q.Option1}}
+           </label>            
+           <input type="radio"name="{{q.Question}}" value="{{q.Option2}}">
+           <label >
+               {{q.Option2}}
+           </label>
+
+            {% endfor %}
+
+            <button type="submit"> Submit </button>
+                <input id='timer' type='hidden' name="timer" value="">
+
+      </form>
+    </div>
+    <script>
+ 
+      console.log('hello world')
+      const timer=document.getElementById('displaytimer')
+      console.log(timer.textContent)
+      const inputtag = document.getElementById('timer')
+
+      t=0
+      setInterval(()=>{
+          t+=1
+          timer.innerHTML ="<b>Timer: " +t+" seconds</b>"
+          inputtag.value = t
+      },1000)
+  </script>
+  <!-- <script >
+    var time_limit = 10;
+  
+  var time_out = setInterval(() => {
+  
+    if(time_limit == 0) {
+      
+      $('body').html(' <button type="submit"> Submit </button>');
+          
+    } else {
+      
+      if(time_limit < 10) {
+        time_limit = 0 + '' + time_limit;
+      }
+      
+      $('#timer').html('00:' + time_limit);
+      
+      time_limit -= 1;
+      
+    }
+  
+  }, 1000);
+  
+    
+  
+
+    </script> -->
+
+    {% endblock body_content %}
+
+

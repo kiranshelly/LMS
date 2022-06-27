@@ -1,0 +1,32 @@
+{% extends 'student_nav.html' %}
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+<style>
+.result{
+    justify-content: center;
+  text-align: center;
+  padding:220px;
+  font-size:28px;
+  }
+
+</style>
+
+<article>
+    <h3> Result </h3>
+    Marks: {{marks}}
+    Time Taken: {{time}} seconds
+    Correct answers: {{correct}}
+    Incorrect answers: {{wrong}}
+    Total questions: {{total}}
+    <h5>All the best for next quiz!</h5>
+
+  </article>
+
+    
+    <a href="{% url 'student:main' %}"> Back to the main page </a>
+
+    {% endblock body_content %}

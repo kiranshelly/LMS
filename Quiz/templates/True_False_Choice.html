@@ -1,0 +1,98 @@
+{% extends 'teacher_nav.html' %}
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+<style>
+  .contact-wrap{
+    max-width: 450px;
+    margin:0 auto;
+  }
+  .contact-wrap h2{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+      .form-control{
+        height: 40px;
+        padding: 25px;
+        margin-bottom: 20px;
+
+      }
+      
+      button{
+        padding:20px;
+        width:50%;
+        display: flex;
+        margin:0 auto;
+        justify-content: center;
+        background: #4199fe;
+        border: none;
+        color:whitesmoke;
+        font-size: 22px;
+      }
+
+
+      @media screen and (min-width: 768px) {
+        .contact-wrap{
+          max-width: 750px;
+
+    margin:0 auto;
+  }
+   
+  }
+  
+
+</style>
+
+  <a href="{% url 'quiz:Types_of_Quiz' %}"> <- Back</a>
+
+    {% load crispy_forms_filters %} 
+
+    <section class="contact-wrap">
+      <h2> Create Multiple Choice Quiz </h2>
+      <form  class="contact-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-sm-6">
+          <div class="input-block">
+            <label for=""> Level </label>
+            {{ True_False.Level }}         
+           </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="input-block">
+            <label for=""> Question </label>
+            {{ True_False.Question }}         
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="input-block">
+            <label for=""> Answer </label>
+            {{ True_False.Answer }}         
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="input-block">
+            <label for=""> Option1</label>
+            {{ True_False.Option1 }}         
+          </div>
+        </div><div class="col-sm-6">
+          <div class="input-block">
+            <label for=""> Option2 </label>
+            {{ True_False.Option2 }}         
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="input-block">
+            <label for=""> Marks </label>
+            {{ True_False.Marks }}         
+          </div>
+        </div>
+          <button type="submit" class="square-button">Send</button>
+      </form>
+    </section>
+    
+    
+  {% endblock body_content %}

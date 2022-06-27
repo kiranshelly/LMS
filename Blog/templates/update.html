@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+    LMS - Profile
+{% endblock title %}
+    
+
+{% block body_content %}
+
+
+    <div class="container mt-5 mb-3">
+ 
+            {% for post in blog_data %}
+                      <p>Title : {{post.Title}} <br></p>
+                        <p>COntent : {{post.Content}}</p>
+            </div>
+
+            {% endfor %}
+        </div>
+
+        {% endblock body_content %}
